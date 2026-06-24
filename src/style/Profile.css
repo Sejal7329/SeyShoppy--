@@ -1,0 +1,128 @@
+
+.account-page-container {
+  padding-top: 100px;
+  max-width: 450px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
+}
+
+.account-heading {
+  font-weight: 300;
+  color: #0b4237; 
+  letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #0d3b32;
+}
+
+.btn-primary-luxury {
+  background-color: #0d3b32;
+  color: #ffffff;
+  padding: 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-primary-luxury:hover {
+  background-color: #08241f;
+}
+
+.profile-card {
+  border: 1px solid #f0f0f0;
+  padding: 35px;
+  margin-top: 10px;
+  border-radius: 6px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.profile-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-item {
+  margin: 0;
+  color: #555555;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 12px;
+}
+
+.profile-item:last-child {
+  border-bottom: none;
+}
+
+.profile-item strong {
+  color: #111111;
+  font-weight: 600;
+  display: inline-block;
+  width: 130px; 
+}
+
+.btn-danger-luxury {
+  background-color: #fff;
+  color: #d93838;
+  border: 1px solid #d93838;
+  padding: 12px 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 35px;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.btn-danger-luxury:hover {
+  background-color: #d93838;
+  color: #ffffff;
+}
+
+.nav-badge-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #42776d;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: 600;
+}

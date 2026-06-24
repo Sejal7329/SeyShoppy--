@@ -1,0 +1,18 @@
+
+.user-session-provider-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.auth-state-syncing {
+  opacity: 0.75;
+  pointer-events: none;
+  cursor: wait;
+}
+
+.luxury-user-active {
+  color: #0d3b32 !important;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}

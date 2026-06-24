@@ -1,0 +1,88 @@
+.search-page-container {
+  padding: 160px 8% 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 70vh;
+}
+
+.search-title {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #0d3b32; /* Beautiful Sea Green branding */
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 15px;
+}
+
+.search-query-highlight {
+  font-weight: 500;
+  font-style: italic;
+  color: #111;
+}
+
+/* Reusing your clean grid layout configuration */
+.search-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 40px 30px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Elegant, clean empty state */
+.search-empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.search-empty-icon {
+  font-size: 3rem;
+  color: #b3d1cb; /* Subtle ocean tint */
+  margin-bottom: 20px;
+}
+
+.search-empty-state p {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+}
+
+.search-suggestions-hint {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* Subtle fade-in animation for loading items smoothly */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .search-page-container {
+    padding: 120px 5% 60px;
+  }
+  
+  .search-title {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+  }
+  
+  .search-products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px 15px;
+  }
+}
