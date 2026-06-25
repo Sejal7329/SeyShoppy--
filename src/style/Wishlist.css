@@ -76,8 +76,9 @@
 
 @media (max-width: 768px) {
     .wishlist-page-container {
-        padding-top: 110px;
-    }
+        padding: 10px;
+
+        }
 
     .wishlist-title {
         font-size: 1.4rem;
@@ -86,6 +87,6 @@
 
     .wishlist-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px 12px;
+        gap: 0px 12px;
     }
 }

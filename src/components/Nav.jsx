@@ -9,6 +9,7 @@ export default function Nav() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [showSearchBar, setShowSearchBar] = useState(false); 
   const [searchQuery, setSearchQuery] = useState(""); 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
   const navigate = useNavigate();
 
   const validKeywords = [
@@ -21,6 +22,7 @@ export default function Nav() {
     navigate(path);
     setActiveMenu(null); 
     setShowSearchBar(false); 
+    setIsMobileMenuOpen(false); 
   };
 
   const handleSearchSubmit = (e) => {
@@ -31,6 +33,7 @@ export default function Nav() {
         navigate(`/search?q=${cleanQuery}`);
         setShowSearchBar(false);
         setSearchQuery("");
+        setIsMobileMenuOpen(false);
       } else {
         alert("This item is not available or search keyword is invalid.");
       }
@@ -64,7 +67,8 @@ export default function Nav() {
           <button className="close-search-btn" onClick={() => setShowSearchBar(false)}>✕</button>
         </div>
       ) : (
-        <ul className='nav-links'>
+        /* TOGGLE DRAWER MENU */
+        <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-drawer-open' : ''}`}>
           <li
             onMouseEnter={() => setActiveMenu('women')}
             onMouseLeave={() => setActiveMenu(null)}
@@ -122,44 +126,56 @@ export default function Nav() {
 
           <li onClick={(e) => handleNavigation("/accessories/all", e)}>Accessories</li>
           <li onClick={(e) => handleNavigation("/shoes/all", e)}>Foot Wear</li>
+
+          {/* 👤 MOBILE ONLY LOGIN CONTAINER (Hidden completely on Web Desktop layout) */}
+          <li className="mobile-login-link">
+            {user ? (
+              <span className="mobile-profile-name" onClick={(e) => handleNavigation("/profile", e)}>
+                👤 {user.name.split(' ')[0]}
+              </span>
+            ) : (
+              <span onClick={(e) => handleNavigation("/login", e)}>Login</span>
+            )}
+          </li>
         </ul>
       )}
 
+      {/* 🛒 MAIN ROW ACTION UTILITIES BAR */}
       <div className="nav-icons">
-        <span onClick={() => setShowSearchBar(!showSearchBar)} style={{ cursor: 'pointer' }}>🔍</span>
+        <span className="nav-icon-item" onClick={() => setShowSearchBar(!showSearchBar)}>🔍</span>
         
-        <span 
-          onClick={(e) => handleNavigation("/wishlist", e)} 
-          style={{ cursor: 'pointer', position: 'relative', display: 'inline-block' }}
-        >
-          ❤️
-          {wishlistCount > 0 && <span className="nav-badge-count">{wishlistCount}</span>}
+        <span className="nav-icon-item badge-wrapper" onClick={(e) => handleNavigation("/wishlist", e)}>
+          ❤️ {wishlistCount > 0 && <span className="nav-badge-count">{wishlistCount}</span>}
         </span>
 
-        <span 
-          onClick={(e) => handleNavigation("/cart", e)} 
-          style={{ cursor: 'pointer', position: 'relative', display: 'inline-block' }}
-        >
-          🛒
-          {cartCount > 0 && <span className="nav-badge-count">{cartCount}</span>}
+        <span className="nav-icon-item badge-wrapper" onClick={(e) => handleNavigation("/cart", e)}>
+          🛒 {cartCount > 0 && <span className="nav-badge-count">{cartCount}</span>}
         </span>
         
-        {user ? (
-          <span 
-            onClick={(e) => handleNavigation("/profile", e)} 
-            style={{ cursor: 'pointer', marginLeft: '12px', fontSize: '0.95rem', fontWeight: '500', color: '#0d3b32' }}
-          >
-            👤 {user.name.split(' ')[0]}
-          </span>
-        ) : (
-          <span 
-            onClick={(e) => handleNavigation("/login", e)} 
-            style={{ cursor: 'pointer', marginLeft: '12px', fontSize: '0.95rem', fontWeight: '500' }}
-          >
-            Login
-          </span>
-        )}
+        {/* 💻 DESKTOP ONLY LOGIN WRAPPER (Hidden completely on Mobile Viewport layout) */}
+        <div className="desktop-login-wrapper">
+          {user ? (
+            <span className="desktop-profile-name" onClick={(e) => handleNavigation("/profile", e)}>
+              👤 {user.name.split(' ')[0]}
+            </span>
+          ) : (
+            <span className="desktop-login-btn" onClick={(e) => handleNavigation("/login", e)}>
+              Login
+            </span>
+          )}
+        </div>
       </div>
+
+      {/* ☰ HAMBURGER BUTTON TOGGLE */}
+      <button 
+        className={`mobile-hamburger-btn ${isMobileMenuOpen ? 'open' : ''}`}
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        aria-label="Toggle navigation menu"
+      >
+        <span className="burger-bar"></span>
+        <span className="burger-bar"></span>
+        <span className="burger-bar"></span>
+      </button>
     </nav>
   );
 }

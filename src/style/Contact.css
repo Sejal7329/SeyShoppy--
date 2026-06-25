@@ -1,46 +1,98 @@
 .Contact-page {
-  display: flex;
-  justify-content:space-evenly;
-  align-items: center;
   width: 100%;
-  height: 400px;
-  margin: 0 auto;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #fcfcfc; 
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif; 
+  box-sizing: border-box;
+  padding: 40px 20px;
 }
 
-.Contact{
-  margin-right: 25px;
-  margin-bottom: 10px;
+.Contact-section-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.Follow{
-margin-left:30px ;
+.Contact-block,
+.Follow-block {
+  flex: 1;
+  max-width: 350px;
 }
 
-.Contact h3,
-.Follow h3 {
-  font-size: 1.9rem;
-  font-weight: 600;
-  margin-bottom: 20px;
+.Contact-block h3,
+.Follow-block h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0 0 24px 0;
   color: #325b53; 
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
+  position: relative;
 }
 
-.Contact p,
-.Follow a {
+.contact-detail,
+.social-link {
   display: block;
-  color: #444;
+  color: #555555;
   text-decoration: none;
   font-size: 0.95rem;
-  margin-bottom: 12px;
-  line-height: 1.4;
+  margin: 0 0 14px 0;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
-.Follow a:hover {
+.social-link {
+  width: max-content;
+}
+
+.social-link:hover {
   color: #0d3b32;
-  text-decoration: underline;
+  transform: translateX(4px); 
 }
 
- 
+/* Responsive  Mobile style*/
+@media (max-width: 768px) {
+  .Contact-page {
+    min-height: auto;
+    padding: 60px 24px;
+  }
+
+  .Contact-section-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 48px; 
+  }
+
+  .Contact-block,
+  .Follow-block {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .Contact-block h3,
+  .Follow-block h3 {
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+  }
+
+  .contact-detail,
+  .social-link {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .social-link {
+    margin: 0 auto 12px auto;
+  }
+  
+  .social-link:hover {
+    transform: scale(1.03);
+  }
+}
