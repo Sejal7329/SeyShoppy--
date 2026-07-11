@@ -80,9 +80,10 @@ export default function Nav() {
                 <div className="Menu-column">
                   <h4 onClick={(e) => handleNavigation("/women/dresses", e)}>Dresses</h4>
                   <h4 onClick={(e) => handleNavigation("/women/tops", e)}>Tops</h4>
+                  <h4 onClick={(e) => handleNavigation("/women/bottom", e)}>Bottoms</h4>
                   <h4 onClick={(e) => handleNavigation("/women/swimmings", e)}>Swimmings</h4>
                   <h4 onClick={(e) => handleNavigation("/women/shoes", e)}>Footwear</h4>
-                  <h4 onClick={(e) => handleNavigation("/accessories/bags", e)}>Bags</h4>
+                  <h4 onClick={(e) => handleNavigation("/bags/women", e)}>Bags</h4>
                 </div>
               </div>
             )}
